@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <style>
+            #box {
+                width: 500px;
+                height: 200px;
+                border: 2px solid rgb(245, 220, 225);
+                padding: 4px 6px;
+                font:   16px "Lucida Grande",
+    "Helvetica",
+    "Arial",
+    "sans-serif";
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <label for="colorPicker">邊框顏色：</label>
+            <input type="color" value="#8888ff" id="colorPicker">
+            <p id = "output"></p>
+        </div>
+    </body>
+    <script>
+        const colorPicker = document.getElementById("colorPicker");
+        const output = document.getElementById("output");
+        const box = document.getElementById("box");
+        box.style.borderColor = colorPicker.value;
+        colorPicker.addEventListener("input", (event) => {
+            box.style.borderColor = event.target.value;
+        },false,   );
+        colorPicker.addEventListener("change", (event) => {
+            output.innerText = "邊框顏色已改變為 " + event.target.value;
+        },false,   );
+    </script>
+</html>
